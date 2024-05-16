@@ -18,23 +18,17 @@ namespace CSharpLight
         }
         public static int[] SumOfN(int n)
         {
-            int absN = Math.Abs(n);
-            int[] template = new int[absN + 1];
-            for (int i = 0; i < template.Length; i++)
-            {
 
-                int sumI = i * (i + 1) / 2;
-                if (n < 0)
+            int[] p = new int[Math.Abs(n) + 1];
+            p[0] = 0;
+            Console.WriteLine(n);
+            for (int i = 1; i <= Math.Abs(n); i++)
                 {
-                    sumI = -sumI;
+                p[i] = p[i - 1] + i * Math.Sign(n);
                 }
-                template[i] = sumI;
-            }
-
-            Console.WriteLine(string.Join(", ", template));
-            return template;
+            Console.WriteLine(string.Join(", ", p));
+            return p;
         }
-
     }
 }
 /*Последовательность в математике - это последовательность объектов, таких как числа, которые следуют определенному шаблону. 
